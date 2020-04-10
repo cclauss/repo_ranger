@@ -1,0 +1,11 @@
+
+#!/bin/bash
+
+# See: https://github.com/jupyterhub/jupyter-server-proxy
+# install jupyterlab/server-proxy
+jupyter labextension install @jupyterlab/server-proxy
+
+# site-packages... ???
+
+# explicit install needed with editable mode (-e) jupyter
+serverextension enable --sys-prefix jupyter_server_proxy
