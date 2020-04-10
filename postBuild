@@ -14,4 +14,5 @@ cp launch_flask_app.py ${NB_PYTHON_PREFIX}/lib/python*/site-packages/
 
 ls -Fla
 # explicit install needed with editable mode (-e) jupyter
-jupyter serverextension enable --sys-prefix jupyter_server_proxy
+# jupyter serverextension enable --sys-prefix jupyter_server_proxy
+jupyter serverextension enable --sys-prefix launch_flask_app
