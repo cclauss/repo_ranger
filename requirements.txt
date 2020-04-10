@@ -1,0 +1,7 @@
+black
+codespell
+flake8
+future
+github3.py
+isort
+pytest
