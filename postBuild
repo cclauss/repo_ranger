@@ -4,13 +4,14 @@
 # See: https://github.com/jupyterhub/jupyter-server-proxy
 # conda install jupyter-server-proxy -c conda-forge
 
-# install jupyterlab/server-proxy
-jupyter labextension install @jupyterlab/server-proxy
-
 # copy serverextension.py into Python site-packages
 # echo ${NB_PYTHON_PREFIX}/lib/python*/site-packages/
 # echo $(python -m site --user-site)
 cp launch_flask_app.py ${NB_PYTHON_PREFIX}/lib/python*/site-packages/
+
+# install jupyterlab/server-proxy
+jupyter labextension install @jupyterlab/launch_flask_app
+jupyter labextension install @jupyterlab/server-proxy
 
 ls -Fla
 # explicit install needed with editable mode (-e) jupyter
