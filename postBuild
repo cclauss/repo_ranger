@@ -10,8 +10,8 @@ jupyter labextension install @jupyterlab/server-proxy
 # copy serverextension.py into Python site-packages
 # echo ${NB_PYTHON_PREFIX}/lib/python*/site-packages/
 # echo $(python -m site --user-site)
-cp jupyter_server_proxy.py ${NB_PYTHON_PREFIX}/lib/python*/site-packages/
+cp launch_flask_app.py ${NB_PYTHON_PREFIX}/lib/python*/site-packages/
 
 ls -Fla
 # explicit install needed with editable mode (-e) jupyter
-serverextension enable --sys-prefix jupyter_server_proxy
+jupyter serverextension enable --sys-prefix jupyter_server_proxy
