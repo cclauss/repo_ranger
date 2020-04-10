@@ -1,7 +1,7 @@
 # Repo Ranger
 Analyze the content of GitHub repositories and propose code quality improvements.
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/cclauss/repo_ranger/master)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/cclauss/repo_ranger/master?filepath=index.ipynb)
 
 In a Jupyter Notbook running on Binder...
 1. Ask the user to type shift-return in the top cell to run repo_ranger.py
