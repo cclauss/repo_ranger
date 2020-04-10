@@ -1,6 +1,7 @@
 black
 codespell
 flake8
+flask
 future
 github3.py
 isort
