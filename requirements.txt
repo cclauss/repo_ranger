@@ -4,4 +4,5 @@ flake8
 future
 github3.py
 isort
+jupyter-server-proxy
 pytest
