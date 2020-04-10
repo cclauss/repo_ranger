@@ -2,13 +2,15 @@
 #!/bin/bash
 
 # See: https://github.com/jupyterhub/jupyter-server-proxy
+conda install jupyter-server-proxy -c conda-forge
+
 # install jupyterlab/server-proxy
 jupyter labextension install @jupyterlab/server-proxy
 
 # copy serverextension.py into Python site-packages
-echo ${NB_PYTHON_PREFIX}/lib/python*/site-packages/
-echo $(python -m site --user-site)
-cp serverextension.py ${NB_PYTHON_PREFIX}/lib/python*/site-packages/
+# echo ${NB_PYTHON_PREFIX}/lib/python*/site-packages/
+# echo $(python -m site --user-site)
+cp jupyter_server_proxy.py ${NB_PYTHON_PREFIX}/lib/python*/site-packages/
 
 # explicit install needed with editable mode (-e) jupyter
 serverextension enable --sys-prefix jupyter_server_proxy
