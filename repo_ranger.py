@@ -2,6 +2,7 @@
 
 from subprocess import run
 
+
 if __name__ == "__main__":
     import doctest
 
@@ -11,5 +12,13 @@ if __name__ == "__main__":
     with open(__file__ + "_debug.txt", "a+") as out_file:
         while True:
             repo = input("Or leave blank to quit: ").strip()
+            if not repo:
+                break
             print(repo)
-            run(["ls", "-Fla"])
+            result = run(["ls", "-lha"], 
+                          text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            print(f"{result.returncode=}")
+            if result.returncode:
+                print(f"{result.stderr=}")
+            else:
+                print(f"{result.stdout=}")
