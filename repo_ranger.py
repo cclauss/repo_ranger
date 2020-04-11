@@ -35,12 +35,24 @@ if __name__ == "__main__":
             if not repo:
                 break
             print(f"{repo=}")
-            out_file.write(f"{repo=}\n")
-            logger.debug(f"{repo=} --> debug")
-            logger.info(f"{repo=} --> info")
-            logger.warning(f"{repo=} --> warning")
+            short_name = repo.split("/")[-1]
+            completed_process = run_cmd_print(["ls", "-lha"])
+            completed_process = run_cmd_print("mkdir work_area")
+            completed_process = run_cmd_print("pushd work_area")
+            completed_process = run_cmd_print(f"git clone {short_name}")
+            completed_process = run_cmd_print(f"cd {short_name}")
+            completed_process = run_cmd_print(["ls", "-lha"])
+            completed_process = run_cmd_print(
+                "flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics"
+            )
 
-            result = run_cmd_print(["ls", "-lha"])
-            result = run_cmd_print(["git", "version"])
-            result = run_cmd_print(["git", "--help"])
+
+            #out_file.write(f"{repo=}\n")
+            #logger.debug(f"{repo=} --> debug")
+            #logger.info(f"{repo=} --> info")
+            #logger.warning(f"{repo=} --> warning")
+
+            #result = run_cmd_print(["ls", "-lha"])
+            #result = run_cmd_print(["git", "version"])
+            #result = run_cmd_print(["git", "--help"])
 
