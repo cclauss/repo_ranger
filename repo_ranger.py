@@ -38,21 +38,22 @@ if __name__ == "__main__":
             short_name = repo.split("/")[-1]
             completed_process = run_cmd_print(["ls", "-lha"])
             completed_process = run_cmd_print("mkdir work_area")
-            completed_process = run_cmd_print(f"cd work_area")
+            # completed_process = run_cmd_print(f"cd work_area")
             completed_process = run_cmd_print(f"git clone {short_name}")
-            completed_process = run_cmd_print(f"cd {short_name}")
+            # completed_process = run_cmd_print(f"cd {short_name}")
             completed_process = run_cmd_print(["ls", "-lha"])
             completed_process = run_cmd_print(
-                "flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics"
+                (f"flake8 ./{short_name} --count --select=E9,F63,F7,F82 --show-source "
+                 "--statistics")
             )
 
 
-            #out_file.write(f"{repo=}\n")
-            #logger.debug(f"{repo=} --> debug")
-            #logger.info(f"{repo=} --> info")
-            #logger.warning(f"{repo=} --> warning")
+            # out_file.write(f"{repo=}\n")
+            # logger.debug(f"{repo=} --> debug")
+            # logger.info(f"{repo=} --> info")
+            # logger.warning(f"{repo=} --> warning")
 
-            #result = run_cmd_print(["ls", "-lha"])
-            #result = run_cmd_print(["git", "version"])
-            #result = run_cmd_print(["git", "--help"])
+            # result = run_cmd_print(["ls", "-lha"])
+            # result = run_cmd_print(["git", "version"])
+            # result = run_cmd_print(["git", "--help"])
 
