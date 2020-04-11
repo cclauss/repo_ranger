@@ -9,4 +9,3 @@ In a Jupyter Notbook running on Binder...
 3. Provide (and log) some basic info on the repo (stars, forks, funding, open/closed issues/prs, first/last commit, etc.)
 4. Provide (and log) the presence of continuous intergration scripts
 5. Depending the primary language of the repo
-

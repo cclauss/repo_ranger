@@ -1,42 +1,15 @@
-import inspect
-import platform
+#!/usr/bin/env python3
 
-for name, value in inspect.getmembers(platform):
-    if name[0] != "_" and callable(value):
-        try:
-            value = value()
-        except (IndexError, TypeError):
-            continue
-        if str(value).strip("(),' "):
-            print("{:>21}() = {}".format(name, value))
+from subprocess import run
 
-# import sys
-# print(sys.platform, sys.version)
+if __name__ == "__main__":
+    import doctest
 
-"""
-         architecture() = ('64bit', '')
-              mac_ver() = ('11.0.3', ('', '', ''), 'iPad5,4')
-              machine() = iPad5,4
-                 node() = CCC-iPad
-             platform() = Darwin-17.0.0-iPad5,4-64bit
-         python_build() = ('default', 'Aug 24 2017 16:20:00')
-      python_compiler() = GCC 4.2.1 Compatible Apple LLVM 8.1.0 (clang-802.0.42)
-python_implementation() = CPython
-       python_version() = 3.6.1
- python_version_tuple() = ('3', '6', '1')
-              release() = 17.0.0
-               system() = Darwin
-                uname() = uname_result(system='Darwin', node='CCC-iPad',
-                                       release='17.0.0',
-                                       version='Darwin Kernel Version 17.0.0: '
-                                               'Fri Sep  1 14:59:13 PDT 2017; '
-                                               'root:xnu-4570.2.5~167/'
-                                               'RELEASE_ARM64_T7001',
-                                       machine='iPad5,4', processor='')
-              version() = ('Darwin Kernel Version 17.0.0: '
-                           'Fri Sep  1 14:59:13 PDT 2017; '
-                           'root:xnu-4570.2.5~167/RELEASE_ARM64_T7001')
+    doctest.testmod()
 
-ios 3.6.1 (default, Aug 24 2017, 16:20:00)
-[GCC 4.2.1 Compatible Apple LLVM 8.1.0 (clang-802.0.42)]
-"""
+    print("\nPlease enter the name of the repo you would like to explore.")
+    with open(__file__ + "_debug.txt", "a+") as out_file:
+        while True:
+            repo = input("Or leave blank to quit: ").strip()
+            print(repo)
+            run(["ls", "-Fla"])
