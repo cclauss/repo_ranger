@@ -16,10 +16,8 @@ def run_cmd(cmd: Union[List[str], str]) -> CompletedProcess:
 def run_cmd_print(cmd: Union[List[str], str]) -> CompletedProcess:
     completed_process = run_cmd(cmd)
     print(f"run({completed_process.args=}) -> {completed_process.returncode=}")
-    if completed_process.returncode:
-        print("\n".join(completed_process.stderr.splitlines()))
-    else:
-        print("\n".join(completed_process.stdout.splitlines()))
+    print("\n".join(completed_process.stdout.splitlines()))
+    print("\n".join(completed_process.stderr.splitlines()))
     return completed_process
 
 
