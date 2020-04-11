@@ -2,18 +2,18 @@
 
 import logging
 from subprocess import CompletedProcess, PIPE, run
-from typing import List
+from typing import List, Union
 
 logger = logging.getLogger(__name__)
 
 
-def run_cmd(cmd: List[str]) -> CompletedProcess:
+def run_cmd(cmd: Union[List[str], str]) -> CompletedProcess:
     if isinstance(cmd, str) and "" in cmd:
         cmd = cmd.split()
     return run(cmd, text=True, stdout=PIPE, stderr=PIPE)
 
 
-def run_cmd_print(cmd: List[str]) -> CompletedProcess:
+def run_cmd_print(cmd: Union[List[str], str]) -> CompletedProcess:
     completed_process = run_cmd(cmd)
     print(f"run({completed_process.args=}) -> {completed_process.returncode=}")
     if completed_process.returncode:
@@ -38,7 +38,7 @@ if __name__ == "__main__":
             short_name = repo.split("/")[-1]
             completed_process = run_cmd_print(["ls", "-lha"])
             completed_process = run_cmd_print("mkdir work_area")
-            completed_process = run_cmd_print("pushd work_area")
+            completed_process = run_cmd_print(f"cd work_area")
             completed_process = run_cmd_print(f"git clone {short_name}")
             completed_process = run_cmd_print(f"cd {short_name}")
             completed_process = run_cmd_print(["ls", "-lha"])
