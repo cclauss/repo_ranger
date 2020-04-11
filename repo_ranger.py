@@ -39,9 +39,9 @@ if __name__ == "__main__":
             completed_process = run_cmd_print(["ls", "-lha"])
             completed_process = run_cmd_print("mkdir work_area")
             # completed_process = run_cmd_print(f"cd work_area")
-            completed_process = run_cmd_print(f"git clone {short_name}")
+            completed_process = run_cmd_print(f"git clone {repo}")
             # completed_process = run_cmd_print(f"cd {short_name}")
-            completed_process = run_cmd_print(["ls", "-lha"])
+            completed_process = run_cmd_print(["ls", "-lha", short_name])
             completed_process = run_cmd_print(
                 (f"flake8 ./{short_name} --count --select=E9,F63,F7,F82 --show-source "
                  "--statistics")
