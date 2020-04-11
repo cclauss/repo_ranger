@@ -15,7 +15,7 @@ def run_cmd(cmd: List[str]) -> CompletedProcess:
 
 def run_cmd_print(cmd: List[str]) -> CompletedProcess:
     completed_process = run_cmd(cmd)
-    print(f"{completed_process.returncode=}")
+    print(f"run({completed_process.args=}) -> {completed_process.returncode=}")
     if completed_process.returncode:
         print("\n".join(completed_process.stderr.splitlines()))
     else:
@@ -40,6 +40,7 @@ if __name__ == "__main__":
             logger.info(f"{repo=} --> info")
             logger.warning(f"{repo=} --> warning")
 
-            result = run_cmd_print(["ls", "-la"])
-            result = run_cmd_print(["ls", "-Fla"])
-            result = run_cmd_print(["ls", "-lha"])            
+            result = run_cmd_print(["ls", "-lha"])
+            result = run_cmd_print(["git", "version"])
+            result = run_cmd_print(["git", "--help"])
+
