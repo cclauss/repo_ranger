@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from subprocess import run
+from subprocess import PIPE, run
 
 
 if __name__ == "__main__":
@@ -15,8 +15,7 @@ if __name__ == "__main__":
             if not repo:
                 break
             print(repo)
-            result = run(["ls", "-lha"], 
-                          text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            result = run(["ls", "-lha"], text=True, stdout=PIPE, stderr=PIPE)
             print(f"{result.returncode=}")
             if result.returncode:
                 print(f"{result.stderr=}")
