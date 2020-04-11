@@ -2,7 +2,7 @@
 
 import logging
 from subprocess import CompletedProcess, PIPE, run
-from Typing import List
+from typing import List
 
 logger = logging.getLogger(__name__)
 
