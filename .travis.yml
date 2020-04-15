@@ -1,5 +1,6 @@
 language: python
 install: pip install pypistats
 script:
-  - pypistats python_major schema
-  - pypistats python_minor schema
+  - pypistats recent schema
+  - pypistats python_major schema --last-month
+  - pypistats python_minor schema --last-month
