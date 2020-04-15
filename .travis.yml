@@ -1,0 +1,5 @@
+language: python
+install: pip install pypistats
+script:
+  - pypistats python_major schema
+  - pypistats python_minor schema
